@@ -1,0 +1,70 @@
+function FindDEMColor(votePercentage){
+if (votePercentage < 50){
+    return "red = '185' green = '82' blue='159'";}
+if (votePercentage >= 50 && votePercentage < 55){
+    return "red = '178' green = '82' blue='159'";}
+if (votePercentage >= 55 && votePercentage < 60){
+    return "red = '169' green = '83' blue='160'";}
+if (votePercentage >= 60 && votePercentage < 65){
+    return "red = '161' green = '83' blue='160'";}
+if (votePercentage >= 65 && votePercentage < 70){
+    return "red = '151' green = '83' blue='161'";}
+if (votePercentage >= 70 && votePercentage < 75){
+    return "red = '140' green = '83' blue='161'";}
+if (votePercentage >= 75 && votePercentage < 80){
+    return "red = '131' green = '83' blue='162'";}
+if (votePercentage >= 80 && votePercentage < 85){
+    return "red = '117' green = '83' blue='162'";}
+if (votePercentage >= 85 && votePercentage < 90){
+    return "red = '100' green = '83' blue='163'";}
+if (votePercentage >= 90 && votePercentage < 95){
+    return "red = '88' green = '83' blue='163'";}
+if (votePercentage >= 95){
+    return "red = '18' green = '15' blue='224'";}
+else{
+    return "red = '0' green = '0' blue='0'";}
+}
+
+function FindGOPColor(votePercentage)
+{
+if (votePercentage < 50){
+    return "red = '185' green = '82' blue='159'";}
+if (votePercentage >= 50 && votePercentage < 55){
+    return "red = '191' green = '79' blue='146'";}
+if (votePercentage >= 55 && votePercentage < 60){
+    return "red = '196' green = '76' blue='136'";}
+if (votePercentage >= 60 && votePercentage < 65){
+    return "red = '200' green = '72' blue='126'";}
+if (votePercentage >= 65 && votePercentage < 70){
+    return "red = '205' green = '69' blue='115'";}
+if (votePercentage >= 70 && votePercentage < 75){
+    return "red = '209' green = '65' blue='105'";}
+if (votePercentage >= 75 && votePercentage < 80){
+    return "red = '214' green = '61' blue='94'";}
+if (votePercentage >= 80 && votePercentage < 85){
+    return "red = '220' green = '54' blue='80'";}
+if (votePercentage >= 85 && votePercentage < 90){
+    return "red = '222' green = '51' blue='73'";}
+if (votePercentage >= 90 && votePercentage < 95){
+    return "red = '225' green = '48' blue='67'";}
+if (votePercentage >= 95){
+    return "red = '237' green = '28' blue='36'";}
+else{
+    return "red = '0' green = '0' blue='0'";}
+}
+
+function FindColor(continuousValue){
+if (continuousValue >= 0){
+    return FindGOPColor(50 + continuousValue);}
+else {
+    return FindDEMColor(50 - continuousValue);}
+}
+
+function FindText(continuousValue){
+if (continuousValue >= 0){
+    return Text(50 + continuousValue, '#');}
+else {
+    return Text(50 - continuousValue, '#');}
+}
+
+"<CLR " + FindColor($feature.Continuous_percent) + ">" + FindText($feature.Continuous_percent) + "</CLR>"

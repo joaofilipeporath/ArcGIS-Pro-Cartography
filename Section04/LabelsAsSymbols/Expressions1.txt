@@ -1,0 +1,8 @@
+function FindText(continuousValue){
+if (continuousValue >= 0){
+    return Text(50 + continuousValue, '#');}
+else {
+    return Text(50 - continuousValue, '#');}
+}
+
+"<CLR " + ">" + FindText($feature.Continuous_percent) + "</CLR>"

@@ -1,0 +1,31 @@
+function FindDEMColor(votePercentage)
+{
+if (votePercentage >= 50){
+    return "red = '18' green = '15' blue='224'";}
+else{
+    return "red = '0' green = '0' blue='0'";}
+}
+
+function FindGOPColor(votePercentage)
+{
+if (votePercentage >= 50){
+    return "red = '237' green = '28' blue='36'";}
+else{
+    return "red = '0' green = '0' blue='0'";}
+}
+
+function FindColor(continuousValue){
+if (continuousValue >= 0){
+    return FindGOPColor(50 + continuousValue);}
+else {
+    return FindDEMColor(50 - continuousValue);}
+}
+
+function FindText(continuousValue){
+if (continuousValue >= 0){
+    return Text(50 + continuousValue, '#');}
+else {
+    return Text(50 - continuousValue, '#');}
+}
+
+"<CLR " + FindColor($feature.Continuous_percent) + ">" + FindText($feature.Continuous_percent) + "</CLR>"

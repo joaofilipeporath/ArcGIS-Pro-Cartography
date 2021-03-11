@@ -1,0 +1,95 @@
+function FindDEMColor(votePercentage){
+var baseColor = "red = '0' green = '0' blue='255'"
+if (votePercentage < 50){
+    return baseColor + " alpha='0'";}
+if (votePercentage >= 50 && votePercentage < 55){
+    return baseColor + " alpha='10'";}
+if (votePercentage >= 55 && votePercentage < 60){
+    return baseColor + " alpha='20'";}
+if (votePercentage >= 60 && votePercentage < 65){
+    return baseColor + " alpha='30'";}
+if (votePercentage >= 65 && votePercentage < 70){
+    return baseColor + " alpha='40'";}
+if (votePercentage >= 70 && votePercentage < 75){
+    return baseColor + " alpha='50'";}
+if (votePercentage >= 75 && votePercentage < 80){
+    return baseColor + " alpha='60'";}
+if (votePercentage >= 80 && votePercentage < 85){
+    return baseColor + " alpha='70'";}
+if (votePercentage >= 85 && votePercentage < 90){
+    return baseColor + " alpha='80'";}
+if (votePercentage >= 90 && votePercentage < 95){
+    return baseColor + " alpha='90'";}
+if (votePercentage >= 95){
+    return baseColor + " alpha='100'";}
+else{
+    return baseColor + " alpha='0'";}
+}
+
+function FindGOPColor(votePercentage){
+var baseColor = "red = '255' green = '0' blue='0'"
+if (votePercentage < 50){
+    return baseColor + " alpha='0'";}
+if (votePercentage >= 50 && votePercentage < 55){
+    return baseColor + " alpha='10'";}
+if (votePercentage >= 55 && votePercentage < 60){
+    return baseColor + " alpha='20'";}
+if (votePercentage >= 60 && votePercentage < 65){
+    return baseColor + " alpha='30'";}
+if (votePercentage >= 65 && votePercentage < 70){
+    return baseColor + " alpha='40'";}
+if (votePercentage >= 70 && votePercentage < 75){
+    return baseColor + " alpha='50'";}
+if (votePercentage >= 75 && votePercentage < 80){
+    return baseColor + " alpha='60'";}
+if (votePercentage >= 80 && votePercentage < 85){
+    return baseColor + " alpha='70'";}
+if (votePercentage >= 85 && votePercentage < 90){
+    return baseColor + " alpha='80'";}
+if (votePercentage >= 90 && votePercentage < 95){
+    return baseColor + " alpha='90'";}
+if (votePercentage >= 95){
+    return baseColor + " alpha='100'";}
+else{
+    return baseColor + " alpha='0'";}
+}
+
+function FindSize(totalVotes)
+{
+if (totalVotes < 16187){
+    return "7";}
+if (totalVotes >= 16187 && totalVotes < 43656.999999){
+    return "9";}
+if (totalVotes >= 43657 && totalVotes < 85764.999999){
+    return "10"};
+if (totalVotes >= 85765 && totalVotes < 143827.999999){
+    return "11";}
+if (totalVotes >= 143828 && totalVotes < 219676.999999){
+    return "12";}
+if (totalVotes >= 219677 && totalVotes < 325219.999999){
+    return "13";}
+if (totalVotes >= 325220 && totalVotes < 464183){
+    return "15";}
+if (totalVotes >= 464183 && totalVotes < 716852.999999){
+    return "17";}
+if (totalVotes >= 716853 && totalVotes < 1185477.999999){
+    return "20";}
+if (totalVotes >= 1185478 && totalVotes < 2330793){
+    return "24";}
+}
+
+function FindColor(continuousValue){
+if (continuousValue >= 0){
+    return FindGOPColor(50 + continuousValue);}
+else {
+    return FindDEMColor(50 - continuousValue);}
+}
+
+function FindText(continuousValue){
+if (continuousValue >= 0){
+    return Text(50 + continuousValue, '#');}
+else {
+    return Text(50 - continuousValue, '#');}
+}
+
+"<FNT size = '" + FindSize($feature.Total_votes) + "'>" + "<CLR " + FindColor($feature.Continuous_percent) + ">" + FindText($feature.Continuous_percent) + "</CLR></FNT>"
